@@ -12,6 +12,10 @@ def runRobot():
       if word in dataset['cumprimentos']:
         act.act(random.choice(dataset['resCumprimentos']))
         break
+      elif word in dataset['action']:
+        food = random.choice(dataset['food'])
+        act.act(f"Tem {food} na geladeira!")
+        break
       elif word in dataset['despedidas']:
         act.act(random.choice(dataset['resDespedidas']))
         break

@@ -1,6 +1,8 @@
 {
-    "cumprimentos":["oi", "olá", "ei", "e aí"],
+    "cumprimentos":["oi", "olá", "ei", "e aí", "robo"],
     "resCumprimentos":["E a i, tudo certo?", "Opa, bao?"],
+    "action": ["to com fome", "quero comer", "o que tem de comida"],
+    "food": ["banana", "maçã", "pera", "uva"],
     "despedidas":["tchau", "até"],
     "resDespedidas":["Falou!", "Até mais"]
 }
