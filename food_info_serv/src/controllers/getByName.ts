@@ -7,7 +7,7 @@ import { logger } from '../libs/logger';
 import { get_by_name_schema } from '../schemas/food';
 
 
-export async function getController(req: Request, res: Response, next: NextFunction) {
+export async function getByNameController(req: Request, res: Response, next: NextFunction) {
   try {    
     const path = schemaValidator<IFoodParams>(req.params as unknown as IFoodParams, get_by_name_schema);
 
