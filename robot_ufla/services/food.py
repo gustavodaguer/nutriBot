@@ -9,7 +9,3 @@ class Food:
     def get_foods(self) -> list[str]:
         response = requests.get(self.food_url)
         return response.json()
-
-
-f = Food()
-f.get_foods()
