@@ -6,7 +6,7 @@ export interface IPerson {
   birth_date: string;
   weight: number; // gramas
   height: number; // centimeters
-  objective?: string;
+  objective: string;
 }
 export interface IPersonParams {
   _id: IPerson['_id'];

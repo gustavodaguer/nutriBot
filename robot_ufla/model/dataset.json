@@ -2,8 +2,6 @@
     "cumprimentos":["oi", "olá", "ei", "e aí", "robo"],
     "resCumprimentos":["E a i, tudo certo?", "Opa, bao?"],
     "action": ["fome", "comer", "comida"],
-    "food": ["banana", "maçã", "peito de frango", "uva","pizza","hamburger"],
     "despedidas":["tchau", "até"],
-    "resDespedidas":["Falou!", "Até mais"],
-    "idade":["10", "12", "15", "9"]
+    "resDespedidas":["Falou!", "Até mais"]
 }

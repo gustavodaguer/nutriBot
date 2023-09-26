@@ -1,7 +1,7 @@
 import { ERROR_MESSAGES } from "../constants/errorMessages";
 import { FoodModel } from "../entities/food";
 import { InternalServerError } from "../exceptions/exceptions";
-import { IFood } from "../interfaces/IFood";
+import { IFood, IFoodUpdate } from "../interfaces/IFood";
 import { logger } from "../libs/logger";
 import { MongoRepository } from "./mongo";
 
@@ -49,10 +49,10 @@ export class FoodRepository extends MongoRepository {
     }
   }
 
-  async update(food: IFood): Promise<void> {
+  async update(name: IFood['name'], body: IFoodUpdate): Promise<void> {
     try {
       await this.open();
-      await this.Model.updateOne({name: food.name}, {details: food.details});
+      await this.Model.updateOne({name},body);
     } catch (error) {
       logger.error(error.message);
       throw new InternalServerError(ERROR_MESSAGES.CANT_UPDATE)
