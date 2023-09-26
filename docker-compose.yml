@@ -62,15 +62,3 @@ services:
     depends_on:
       - mongo
 
-  robot:
-    image: nutri_bot/robot
-    build:
-      context: robot_ufla
-      dockerfile: Dockerfile
-    command: python3 main.py
-    env_file:
-      - robot_ufla/.env
-    depends_on:
-      - person
-      - food
-
