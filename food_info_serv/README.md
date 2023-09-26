@@ -11,11 +11,11 @@ Caso rode em localhost considere a _baseUrl_ como `localhost:3000`
 
 **Body:**
 
-```ts
+```json
 {
-    name: string
-    quantity: number,
-    unity: string
+    "name": "string",
+    "quantity": 0,
+    "unity": "string"
 }
 ```
 
