@@ -10,7 +10,7 @@ const person = new Schema<IPerson>(
     last_name: { type: String, required: true },
     weight: { type: Number, required: true },
     birth_date: { type: String, required: true },
-    
+    objective: {type: String, required: true}
   },
   {
     collection: COLLECTIONS.FOOD

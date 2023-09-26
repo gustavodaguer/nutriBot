@@ -11,6 +11,8 @@ const food = new Schema<IFood>(
       unique: true,
     },
     details: { type: Schema.Types.Mixed, required: false },
+    quantity: { type: Number, required: true},
+    unity: {type: String, required: true}
   },
   {
     collection: COLLECTIONS.FOOD

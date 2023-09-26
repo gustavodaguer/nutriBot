@@ -8,4 +8,6 @@ class Food:
 
     def get_foods(self) -> list[str]:
         response = requests.get(self.food_url)
-        return response.json()
+        foods = response.json()
+
+        return [food for food in foods if food['quantity'] > 0]

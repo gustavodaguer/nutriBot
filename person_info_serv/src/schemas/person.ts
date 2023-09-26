@@ -15,8 +15,8 @@ export const create_schema = Joi.object().keys({
   birth_date: birth_date.required(),
   weight: weight.required(),
   height: height.required(),
+  objective: objective.required(),
   middle_name,
-  objective,
 });
 export const get_by_id_schema = Joi.object().keys({ _id });
 export const update_body_schema = Joi.object().keys({
