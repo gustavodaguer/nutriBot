@@ -70,6 +70,17 @@ pip install -r requirements.txt
 python main.py
 ```
 
+## Integração OpenIA API
+
+Para realizar a integração com o chatGPT foi utilizada a OpenIA API seguindo os seguintes passos:
+  - Criação da conta no openapi.com.
+  - Criação da chave da api.
+  - Instalação e importação da biblioteca openapi que permite a integração com o chatGPT.
+  - Iniciamos a classe OpenAI mandando a chave da api e o modelo escolhido (text-davinci-003).
+  - Após iniciada, a classe será chamada para executar a função que monta um prompt, com as informações da criança e das comidas disponiveis na geladeira.
+  - É utilizada a função create da classe Completion da biblioteca openai sendo passado o prompt que criamos e o modelo, retornando assim uma refeição saudável que encaixe melhor levando em conta todas as informações passadas.
+
+
 ## Desafios
 
 Alguns dos desafios encontrados e suas soluções:
