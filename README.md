@@ -4,6 +4,9 @@
 
 ![Arquitetura](./architecture/NutriBot.drawio.png)
 
+- [Documentação de comidas](./food_info_serv/README.md)
+- [Documentação de pessoas](./person_info_serv/README.md)
+
 ## Rodar as APIs
 
 ```sh
