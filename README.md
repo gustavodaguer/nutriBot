@@ -69,3 +69,11 @@ pip install -r requirements.txt
 ```sh
 python main.py
 ```
+
+## Desafios
+
+Alguns dos desafios encontrados e suas soluções:
+
+- Integração com a OpenAi não é gratuita, a solução encontrada foi desembolsar um valor mínimo para realizar o projeto
+- Não foi possível rodar o robô num ambiente linux por conta de compatibilidade, sendo necessário rodá-lo numa máquina Windows.
+- Ter a ideia sobre o que seria o robô, que acabou sendo um brainstorm, mas muitas ideias surgiram apos a decisão, talvez um tempo melhor para pensar seja válido.
