@@ -1,9 +1,9 @@
 
 import { Router } from 'express';
-import { foodRoutes } from './food';
+import { foods_routes } from './food';
 
 const router = Router();
 
-foodRoutes(router);
+router.use('/foods', foods_routes);
 
 export default router;

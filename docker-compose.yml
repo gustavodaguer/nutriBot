@@ -6,18 +6,39 @@ services:
     build:
       context: food_info_serv
       dockerfile: Dockerfile
+    command: pnpm run dev
     environment:
       NODE_ENV: development
       STAGE: dev
       PORT: 3000
       USERNAME: root
       PASSWORD: example
-      DATABASE: food
+      DATABASE: nutribot
       HOST: mongo:27017
     volumes:
       - ./food_info_serv:/home/node/app
     ports:
       - 3000:3000
+    depends_on:
+      - mongo
+  person:
+    image: nutri_bot/person_info_serv
+    build:
+      context: person_info_serv
+      dockerfile: Dockerfile
+    command: pnpm run dev
+    environment:
+      NODE_ENV: development
+      STAGE: dev
+      PORT: 3100
+      USERNAME: root
+      PASSWORD: example
+      DATABASE: nutribot
+      HOST: mongo:27017
+    volumes:
+      - ./person_info_serv:/home/node/app
+    ports:
+      - 3100:3100
     depends_on:
       - mongo
 

@@ -5,6 +5,7 @@ import { CONFIG } from '../constants/config';
 import { ERROR_MESSAGES } from '../constants/errorMessages';
 import { InternalServerError } from '../exceptions/exceptions';
 import { IMongoDb } from '../interfaces/IMongoDb';
+import { logger } from '../libs/logger';
 
 
 const MONGOOSE_CONNECTED_STATUS = 1;
@@ -27,15 +28,17 @@ export class MongooseDatabase {
     }
 
     const { username, password, host, database } = this.mongo_params;
-
-    const uri = `mongodb+srv://${username}:${password}@${host}/${database}`;
-
+    
+    const uri = `mongodb://${username}:${password}@${host}?authMechanism=DEFAULT`;
     try {
+      logger.debug(uri)
       await mongoose.connect(uri, {
-        serverSelectionTimeoutMS: 5000,
-        socketTimeoutMS: 360000
+        dbName: database,
+        user: username,
+        pass: password,
       });
     } catch (error) {
+      logger.error(error.message, JSON.stringify(error))
       throw new InternalServerError(ERROR_MESSAGES.CONNECT_DATABASE);
     }
   }

@@ -10,4 +10,4 @@ RUN npm install --location=global pnpm
 RUN pnpm install
 RUN pnpm run build 
 
-CMD [ "pnpm", "run", "serve" ]
+CMD [ "sleep", "infinity" ]

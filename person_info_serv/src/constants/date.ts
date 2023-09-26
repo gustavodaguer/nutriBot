@@ -1,0 +1,1 @@
+export const MIDNIGHT = 'T00:00:00.000Z'
