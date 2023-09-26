@@ -21,6 +21,7 @@ services:
       - 3000:3000
     depends_on:
       - mongo
+
   person:
     image: nutri_bot/person_info_serv
     build:
@@ -60,3 +61,16 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
     depends_on:
       - mongo
+
+  robot:
+    image: nutri_bot/robot
+    build:
+      context: robot_ufla
+      dockerfile: Dockerfile
+    command: python3 main.py
+    env_file:
+      - robot_ufla/.env
+    depends_on:
+      - person
+      - food
+

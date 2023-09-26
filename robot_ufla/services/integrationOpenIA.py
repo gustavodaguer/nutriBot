@@ -1,19 +1,27 @@
-import sys
+
+from datetime import datetime
+from config import env
 import openai
 
-sys.path.insert(0, 'robot_ufla\model\dataset.json')
 
-from model import dataset
+class OpenAI:
+    def __init__(
+        self, api_key: str = env.ENV["API_KEY"], model: str = env.ENV["MODEL"]
+    ) -> None:
+        openai.api_key = api_key
+        self.model = model
 
-openai.api_key="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"
+    def prepare_healthy_food(
+        self, age: int, weight: int, objective: str, foods: list[str]
+    ) -> None:
+        
+        question = f"Monte uma refeição saudável para uma criança de {age} anos, pesando {weight} com uma dieta para {objective} comer às {datetime.now().strftime('%H:%M')}h"
+        question += f"as opções são: {', '.join(foods)} Por favor, mostrar apenas as opções com as devidas quantidades."
+        question += "Obs: não é necessário utilizar todas as opções na refeição"
+        print(question)
 
-modelo = "text-davinci-003"
-pergunta = "Monte uma refeição saudável para uma criança de {} anos com uma dieta para {} comer às 16:00h, as opções são: {}, {}, {}, {}, {}, {}. Por favor, mostrar apenas as opções com as devidas quantidades. Obs: não é necessário utilizar todas as opções na refeição".format(dataset.idade[0], dataset.dieta[0], dataset.food[0], dataset.food[1], dataset.food[2], dataset.food[3], dataset.food[4], dataset.food[5], dataset.food[6])
-
-resposta = openai.Completion.create(
-            engine = modelo,
-            prompt = pergunta,
-            max_tokens = 1024
+        response = openai.Completion.create(
+            engine=self.model, prompt=question, max_tokens=1024
         )
 
-print(resposta.choices[0].text)
+        return response.choices[0].text

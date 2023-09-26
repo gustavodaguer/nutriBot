@@ -8,7 +8,7 @@ export class GetFoods {
   
   async getAll() {
     const response = await this.repository.getAll();
-    return response;
+    return response.map(v => v.name);
   }
 
   async getByName({name}: IFoodParams) {
